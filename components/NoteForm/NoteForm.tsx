@@ -4,7 +4,7 @@ import { useId } from "react";
 import * as Yup from "yup";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
-import { createNote } from "@/lib/app";
+import { createNote } from "@/lib/api";
 
 interface NoteFormProps {
   onClose: () => void;

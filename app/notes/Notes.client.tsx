@@ -2,7 +2,7 @@
 
 import Pagination from '@/components/Pagination/Pagination';
 import css from '../page.module.css';
-import { fetchNotes} from '@/lib/app';
+import { fetchNotes} from '@/lib/api';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useDebounce } from 'use-debounce';
