@@ -2,7 +2,7 @@
 
 import Pagination from '@/components/Pagination/Pagination';
 import css from '../page.module.css';
-import { fetchNotes, NoteResponse } from '@/lib/app';
+import { fetchNotes} from '@/lib/app';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useDebounce } from 'use-debounce';
@@ -25,10 +25,10 @@ export default function NotesClient() {
     queryKey: ['notes', page, debouncedRequest],
     queryFn: () => fetchNotes(page, debouncedRequest),
     retry: false,
-    placeholderData: prev=>prev
+    placeholderData: prev => prev,
   });
   console.log(data);
-  
+
   const onChangeRequest = (newRequest: string) => {
     setPage(1);
     setRequest(newRequest);
@@ -48,13 +48,12 @@ export default function NotesClient() {
           Create note +
         </button>
       </div>
-    {isFetching && <Loader />}
+      {isFetching && <Loader />}
       {isError && <ErrorMessage />}
       {openModal && (
-        <Modal
-          onClose={toggleModal}
-          children={<NoteForm onClose={toggleModal} />}
-        />
+        <Modal onClose={toggleModal}>
+          <NoteForm onClose={toggleModal} />
+        </Modal>
       )}
       {data && data?.totalPages > 0 && <NoteList notes={data.notes} />}
     </div>
