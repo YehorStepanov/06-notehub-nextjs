@@ -1,4 +1,4 @@
-import { AddNoteFormValue } from "@/lib/note";
+import { AddNoteFormValue } from "@/types/note";
 import css from "./NoteForm.module.css";
 import { useId } from "react";
 import * as Yup from "yup";
